@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Form, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-page',
@@ -6,23 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit {
-
-  firstName: string;
-  lastName: string;
-  birthday: string;
-  helloMsg: string;
+  form: FormGroup;
   age: number;
-  gender: string;
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder
+  ) {
+    this.form = fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      birthday: ['', Validators.pattern('\d{2}\/\d{2}\/\d{4}')],
+      gender: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
-    this.helloMsg = 'Hello good world!';
   }
 
   calculateAge() {
-    this.age =
-     new Date().getFullYear() - (+this.birthday.substr(this.birthday.lastIndexOf('/')+1));
+    const birthday = this.form.get('birthday').value;
+    this.age = new Date().getFullYear() - (+birthday.substr(birthday.lastIndexOf('/') + 1));
   }
 
 }
