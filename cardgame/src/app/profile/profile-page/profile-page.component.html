@@ -1,1 +1,36 @@
-<p>profile-page works!</p>
+<div class="card">
+<h2>{{helloMsg}}</h2>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" [(ngModel)]="firstName">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" [(ngModel)]="lastName">
+        </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input type="text" placeholder="12/12/1999" [(ngModel)]="birthday">
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <input type="radio" name="gender" value="male" (ngModel)="gender"> Male <br/>
+              <input type="radio" name="gender" value="female" (ngModel)="gender"> Female <br/>
+              <input type="radio" name="gender" value="other" (ngModel)="gender"> Other <br/>
+            </div>
+          </div>
+        <div class="col-md-4">
+          <button class="btn btn-wide btn-primary" (click)="calculateAge()">Get Age</button>
+          <br/>
+          <h5>Current Age: {{age}}</h5>
+        </div>
+    </div>
+    
+  </div>
+
+</div>
