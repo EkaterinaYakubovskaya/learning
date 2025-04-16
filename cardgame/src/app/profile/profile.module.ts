@@ -6,6 +6,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookCarouselComponent } from './bolt-carousel/bolt-carousel.component';
+import { CodeRabbitInfoComponent } from '../coderabbit-info/coderabbit-info.component';
 
 @NgModule({
   declarations: [ProfilePageComponent, BookCarouselComponent],
